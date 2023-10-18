@@ -27,7 +27,7 @@ def ftp_list_data():
     return 'Success'
 
 run_this = PythonOperator(
-    task_id='execute_ftp_pull',
+    task_id='execute_ftp_list',
     provide_context=True,
     python_callable=ftp_list_data,
     dag=dag,
