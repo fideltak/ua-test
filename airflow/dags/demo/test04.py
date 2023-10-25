@@ -19,12 +19,14 @@ dag = DAG(
     schedule_interval=None,
 )
 
+
 def ftp_list_data():
     ftp = FTP(ip_addr)
-    ftp.login(ftp_user,ftp_user_password)
+    ftp.login(ftp_user, ftp_user_password)
     print(ftp.retrlines('LIST'))
     ftp.quit()
     return 'Success'
+
 
 run_this = PythonOperator(
     task_id='execute_ftp_list',

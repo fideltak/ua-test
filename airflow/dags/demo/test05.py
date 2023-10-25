@@ -14,10 +14,12 @@ dag = DAG(
     schedule_interval=None,
 )
 
+
 def get_pip_list():
     p_list = _internal.main(['list'])
     print(p_list)
     return p_list
+
 
 run_this = PythonOperator(
     task_id='execute_pip_list',
