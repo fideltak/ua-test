@@ -31,7 +31,9 @@ def dag_sample():
     @task
     @dag_test('task02')
     def task02():
-        print("Dag Task: Remove file")
+        print("Dag Task: Creating file and Remove it")
+        with open(file_path, 'w') as f:
+            f.write('Hello!')
         os.remove(file_path)
         
     @task

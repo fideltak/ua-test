@@ -14,8 +14,8 @@ else:
 def dag_test(task_name):
     if test_flag:
         if task_name == "task01":
-            def _task01(task):
-                def _wrapper(*args):
+            def _test(task):
+                def task01(*args): # this method name should be same as task name
                     task(*args)
                     print("##########################TEST: {}#################################".format(task_name))
                     print("Test Case01: Check file existance: {}".format(file_path))
@@ -25,11 +25,11 @@ def dag_test(task_name):
                         print("Failed")
                         raise ValueError ("No file: {}".format(file_path))
                     print("########################################################################")
-                return _wrapper
-            return _task01
-        if task_name == "task02":
-            def _task02(task):
-                def _wrapper(*args):
+                return task01
+            return _test
+        if task_name == "task02": # this method name should be same as task name
+            def _test(task):
+                def task02(*args):
                     task(*args)
                     print("##########################TEST: {}#################################".format(task_name))
                     print("Test Case01: Check file NOT existance: {}".format(file_path))
@@ -39,18 +39,18 @@ def dag_test(task_name):
                         print("Failed")
                         raise ValueError ("No file: {}".format(file_path))
                     print("########################################################################")
-                return _wrapper
-            return _task02
+                return task02
+            return _test
         else: 
-            def _others(task):
-                def _wrapper(*args):
+            def _test(task):
+                def others(*args):
                     task(*args)
                     print("##########################TEST: {}#################################".format(task_name))
                     print("Skipped...")
                     print("Not defined test: {}".format(task_name))
                     print("########################################################################")
-                return _wrapper
-            return _others
+                return others
+            return _test
     else:
         def _no_test(task):
             def _wrapper(*args):
