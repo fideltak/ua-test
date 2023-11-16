@@ -1,7 +1,0 @@
-.*DS*
-bin/
-configs/
-__pycache__
-.ipynb_checkpoints
-!.gitignore
-!.gitkeep
